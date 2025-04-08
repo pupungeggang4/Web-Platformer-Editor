@@ -8,6 +8,11 @@
                 touch-action: none;
             }
 
+            @font-face {
+                font-family: 'neodgm':
+                src: url('Font/neodgm.ttf');
+            }
+
             #screen {
                 border: 2px solid black;
                 position: absolute;
@@ -17,11 +22,25 @@
                 left: 0;
                 margin: auto;
                 max-height: 96%;
-                max-width: 96%
+                max-width: 96%;
             }
         </style>
     </head>
     <body>
-        <script src="Asset.js"></script>
+        <canvas id="screen" width="1280" height="720"></canvas>
+
+        <script src="Script/Asset.js"></script>
+        <script src="Script/UI.js"></script>
+        <script src="Script/Const.js"></script>
+        <script src="Script/Primitive.js"></script>
+        <script src="Script/Thing.js"></script>
+        <script src="Script/Player.js"></script>
+        <script src="Script/GameHandler.js"></script>
+
+        <script src="Script/Render.js"></script>
+
+        <script src="Script/SceneEditor.js"></script>
+
+        <script src="Script/Main.js"></script>
     </body>
 </html>
