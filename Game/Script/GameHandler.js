@@ -6,8 +6,9 @@ class Game {
 
         this.scene = 'editor'
         this.state = ''
+        this.mode = ''
 
-        this.editor = new Editor()
+        this.field = new Field()
 
         this.canvas = document.getElementById('screen')
         this.ctx = this.canvas.getContext('2d')

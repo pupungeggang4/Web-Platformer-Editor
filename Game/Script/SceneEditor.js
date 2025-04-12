@@ -5,7 +5,7 @@ class SceneEditor {
 
     static render(game) {
         Render.init(game)
-        game.editor.render(game)
+        game.field.render(game)
         Render.renderUpperBar(game)
         Render.renderLeftBar(game)
         Render.renderRightBar(game)
@@ -13,6 +13,13 @@ class SceneEditor {
     }
 
     static mouseUp(game, pos, button) {
-        console.log(pos.x, pos.y)
+        if (button === 0) {
+            if (game.state === '') {
+                if (pointInsideRectUI(pos, UI.editor.upper.buttonPlay)) {
+                    game.scene = 'test'
+                    game.state = ''
+                }
+            }
+        }
     }
 }
