@@ -2,11 +2,16 @@ var game
 
 class Game {
     constructor() {
+        imageLoad()
+
         this.scene = 'editor'
         this.state = ''
 
+        this.editor = new Editor()
+
         this.canvas = document.getElementById('screen')
         this.ctx = this.canvas.getContext('2d')
+
         window.addEventListener('mouseup', (event) => this.mouseUp(event), false)
 
         this.frameCurrent = performance.now()
