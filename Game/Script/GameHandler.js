@@ -8,11 +8,21 @@ class Game {
         this.state = ''
         this.mode = ''
 
+        this.keyMap = {
+            'up': 'w', 'left': 'a', 'down': 's', 'right': 'd' 
+        }
+        this.keyPressed = {
+            'up': false, 'left': false, 'down': false, 'right': false
+        }
+
         this.field = new Field()
+        this.testField = new TestField()
 
         this.canvas = document.getElementById('screen')
         this.ctx = this.canvas.getContext('2d')
 
+        window.addEventListener('keydown', (event) => this.keyDown(event), false)
+        window.addEventListener('keyUp', (event) => this.keyUp(event), false)
         window.addEventListener('mouseup', (event) => this.mouseUp(event), false)
 
         this.frameCurrent = performance.now()
@@ -34,6 +44,26 @@ class Game {
         }
 
         this.gameLoop = requestAnimationFrame(() => this.loop())
+    }
+
+    keyDown(event) {
+        let key = event.key
+
+        for (let k in this.keyMap) {
+            if (key === this.keyMap[k]) {
+                this.keyPressed[k] = true
+            }
+        }
+    }
+
+    keyUp(event) {
+        let key = event.key
+
+        for (let k in this.keyMap) {
+            if (key === this.keyMap[k]) {
+                this.keyPressed[k] = false
+            }
+        }
     }
 
     mouseUp(event) {

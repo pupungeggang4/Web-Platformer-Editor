@@ -4,6 +4,12 @@ class Camera2D {
     }
 }
 
+class Thing {
+    constructor() {
+
+    }
+}
+
 class Wall {
 
 }

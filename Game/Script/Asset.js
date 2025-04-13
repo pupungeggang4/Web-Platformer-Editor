@@ -18,7 +18,9 @@ let img = {
     thing: {
         start: new Image(),
         goal: new Image(),
-    }
+    },
+
+    player: new Image(),
 }
 
 function imageLoad() {
@@ -38,4 +40,6 @@ function imageLoad() {
 
     img.thing.start.src = 'Image/Thing/Start.png'
     img.thing.goal.src = 'Image/Thing/Goal.png'
+
+    img.player.src = 'Image/Player40.png'
 }

@@ -18,6 +18,7 @@ class SceneEditor {
                 if (pointInsideRectUI(pos, UI.editor.upper.buttonPlay)) {
                     game.scene = 'test'
                     game.state = ''
+                    game.testField.loadField(game.field)
                 }
             }
         }

@@ -5,6 +5,7 @@ class SceneTest {
 
     static render(game) {
         Render.init(game)
+        game.testField.render(game)
         Render.drawImageUI(game, img.button.play, UI.test.buttonPlay)
         Render.drawImageUI(game, img.button.pause, UI.test.buttonPause)
         Render.drawImageUI(game, img.button.stop, UI.test.buttonStop)
