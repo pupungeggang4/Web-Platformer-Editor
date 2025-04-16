@@ -17,10 +17,6 @@ class SceneTest {
                 game.scene = 'editor'
                 game.state = ''
             }
-
-            if (game.state === '') {
-
-            }
         }
     }
 }

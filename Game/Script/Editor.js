@@ -1,6 +1,7 @@
 class Field {
     constructor() {
         this.camera = new Camera2D()
+        
         this.tile = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -19,9 +20,12 @@ class Field {
         this.canvas.width = 800
         this.canvas.height = 720
         this.ctx = this.canvas.getContext('2d')
+        this.camera.rect.size = new Vector2D(this.canvas.width, this.canvas.height)
 
-        this.start = new Rect2D(96, 352, 40, 40)
-        this.goal = new Rect2D(1200, 600, 40, 40)
+        this.start = new Start()
+        this.start.rect.position = new Vector2D(-320, 0)
+        this.goal = new Goal()
+        this.goal.rect.position = new Vector2D(320, 0)
     }
 
     render(game) {
@@ -31,7 +35,8 @@ class Field {
                 this.ctx.strokeRect(64 * j, 64 * i, 64, 64)
             }
         }
-        Render.drawImageField(this.ctx, img.thing.start, this.start, this.camera)
+        this.start.render(this)
+        this.goal.render(this)
         game.ctx.drawImage(this.canvas, 240, 40)
     }
 }

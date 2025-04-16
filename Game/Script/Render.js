@@ -38,6 +38,7 @@ class Render {
 
     static renderLowerBar(game) {
         this.strokeRectUI(game, UI.editor.lower.rect)
+        this.fillTextUI(game, game.mode, UI.editor.lower.textMode)
     }
 
     static strokeRectUI(game, rect) {
@@ -48,7 +49,11 @@ class Render {
         game.ctx.drawImage(img, pos[0], pos[1])
     }
 
+    static fillTextUI(game, text, pos) {
+        game.ctx.fillText(text, pos[0], pos[1])
+    }
+
     static drawImageField(ctx, img, rect, camera) {
-        ctx.drawImage(img, rect.position.x - rect.size.x / 2, rect.position.y - rect.size.y / 2)
+        ctx.drawImage(img, rect.position.x - rect.size.x / 2 - camera.rect.position.x + camera.rect.size.x / 2, rect.position.y - rect.size.y / 2 - camera.rect.position.y + camera.rect.size.y / 2)
     }
 }

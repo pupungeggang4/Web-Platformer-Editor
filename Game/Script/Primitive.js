@@ -2,7 +2,6 @@ class Vector2D {
     constructor(x, y) {
         this.x = x
         this.y = y
-        this.a = [100, 100, 100]
     }
 
     add(vec) {
