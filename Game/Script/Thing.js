@@ -10,8 +10,38 @@ class Thing {
     }
 }
 
-class Wall {
+class Wall extends Thing {
+    constructor() {
+        super()
+    }
+}
 
+class Collectable extends Thing {
+    constructor() {
+        super()
+    }
+
+    collectCheck() {
+
+    }
+}
+
+class Coin extends Collectable {
+    constructor(rect) {
+        super()
+        self.rect = new Rect2D(rect[0], rect[1], rect[2], rect[3])
+        self.canvas = document.createElement('canvas')
+        self.canvas.width = 40
+        self.canvas.height = 40
+        self.context = self.canvas.getContext('2d')
+        self.animationTime = 0
+        self.frameInterval = 0.2
+        self.frameNum = 0
+    }
+
+    render() {
+
+    }
 }
 
 class Start extends Thing {

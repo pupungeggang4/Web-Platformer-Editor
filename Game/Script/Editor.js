@@ -16,6 +16,8 @@ class Field {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ]
+        this.thing = []
+
         this.canvas = document.createElement('canvas')
         this.canvas.width = 800
         this.canvas.height = 720
