@@ -25,7 +25,6 @@ class Render {
         this.drawImageUI(game, img.button.start, UI.editor.upper.buttonStart)
         this.drawImageUI(game, img.button.goal, UI.editor.upper.buttonGoal)
         this.drawImageUI(game, img.button.play, UI.editor.upper.buttonPlay)
-        //this.drawImageUI(game, img.button. UI.editor.upper.button)
     }
 
     static renderLeftBar(game) {

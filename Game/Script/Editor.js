@@ -16,7 +16,7 @@ class Field {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ]
-        this.thing = []
+        this.thing = [new Coin([-40, 0]), new Coin([0, 0]), new Coin([40, 0])]
 
         this.canvas = document.createElement('canvas')
         this.canvas.width = 800
@@ -37,8 +37,11 @@ class Field {
                 this.ctx.strokeRect(64 * j, 64 * i, 64, 64)
             }
         }
-        this.start.render(this)
-        this.goal.render(this)
+        this.start.render(game, this)
+        this.goal.render(game, this)
+        for (let i = 0; i < this.thing.length; i++) {
+            this.thing[i].render(game, this)
+        }
         game.ctx.drawImage(this.canvas, 240, 40)
     }
 }

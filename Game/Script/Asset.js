@@ -18,6 +18,7 @@ let img = {
     thing: {
         start: new Image(),
         goal: new Image(),
+        coin: new Image(),
     },
 
     player: new Image(),
@@ -40,6 +41,7 @@ function imageLoad() {
 
     img.thing.start.src = 'Image/Thing/Start.png'
     img.thing.goal.src = 'Image/Thing/Goal.png'
+    img.thing.coin.src = 'Image/Thing/CoinSprite.png'
 
     img.player.src = 'Image/Player40.png'
 }
