@@ -1,3 +1,7 @@
 let img = {
     
 }
+
+function imageLoad() {
+
+}
