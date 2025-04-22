@@ -15,6 +15,18 @@ class Render {
         this.renderRectUI(program, UI.edit.upper.rect)
     }
 
+    static renderLeftBar(program) {
+        this.renderRectUI(program, UI.edit.left.rect)
+    }
+
+    static renderRightBar(program) {
+        this.renderRectUI(program, UI.edit.right.rect)
+    }
+
+    static renderLowerBar(program) {
+        this.renderRectUI(program, UI.edit.lower.rect)
+    }
+
     static renderRectUI(program, rect) {
         program.ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }

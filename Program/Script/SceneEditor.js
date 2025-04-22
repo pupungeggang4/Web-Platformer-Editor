@@ -6,6 +6,9 @@ class SceneEdit {
     static render(program) {
         Render.init(program)
         Render.renderUpperBar(program)
+        Render.renderLowerBar(program)
+        Render.renderLeftBar(program)
+        Render.renderRightBar(program)
     }
 
     static keyDown(program, key) {
