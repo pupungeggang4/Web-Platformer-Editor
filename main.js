@@ -5,10 +5,10 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 1280,
         height: 800,
-        icon: path.join(__dirname, 'favicon.ico')
+        icon: path.join(__dirname, '/Program/favicon.ico')
     })
 
-    win.loadFile(path.join(__dirname, 'index.html'))
+    win.loadFile(path.join(__dirname, '/Program/index.html'))
 }
 
 app.whenReady().then(() => {
