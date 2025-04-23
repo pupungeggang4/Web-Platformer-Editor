@@ -13,7 +13,7 @@ class Program {
         this.framePrevious = performance.now()
 
         this.fieldEdit = new FieldEdit()
-        this.fieldTest = []
+        this.fieldTest = new FieldTest()
 
         this.canvas = document.getElementById('screen')
         this.ctx = this.canvas.getContext('2d')
@@ -61,8 +61,8 @@ class Program {
     mouseUp(event) {
         let targetRect = this.canvas.getBoundingClientRect()
         let pos = {
-            x: (event.clientX - targetRect.left) / targetRect.width * targetRect.width,
-            y: (event.clientY - targetRect.top) / targetRect.height * targetRect.height
+            x: (event.clientX - targetRect.left) / targetRect.width * this.canvas.width,
+            y: (event.clientY - targetRect.top) / targetRect.height * this.canvas.height
         }
         let button = event.button
 
@@ -72,4 +72,8 @@ class Program {
             SceneTest.mouseUp(this, pos, button)
         }
     }
+}
+
+function pointInsideRectUI(point, rect) {
+    return point.x > rect[0] && point.x < rect[0] + rect[2] && point.y > rect[1] && point.y < rect[1] + rect[3]
 }

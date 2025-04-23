@@ -12,5 +12,9 @@ const UI = {
         lower: {
             rect: [0, 760, 1280, 40]
         },
+        fieldArea: [240, 40, 800, 720]
+    },
+    test: {
+
     }
 }

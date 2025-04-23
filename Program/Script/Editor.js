@@ -2,12 +2,20 @@ class FieldEdit {
     constructor() {
         this.player = new Player()
         this.tileMap = new TileMap()
-
+        this.size = new Vector2D(800, 720)
         this.canvas = document.createElement('canvas')
-        this.ctx = canvas.getContext('2d')
+        this.canvas.width = this.size.x
+        this.canvas.height = this.size.y
+        this.ctx = this.canvas.getContext('2d')
     }
 
-    handleTick() {
+    handleTick(program) {
 
+    }
+
+    render(program) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.player.render(program, this)
+        program.ctx.drawImage(this.canvas, UI.edit.fieldArea[0], UI.edit.fieldArea[1])
     }
 }
