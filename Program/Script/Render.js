@@ -13,6 +13,11 @@ class Render {
 
     static renderUpperBar(program) {
         this.renderRectUI(program, UI.edit.upper.rect)
+        this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
+        this.renderImageUI(program, img.button.saveFile, UI.edit.upper.buttonSaveFile)
+        this.renderImageUI(program, img.button.openFile, UI.edit.upper.buttonOpenFile)
+        //this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
+        //this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
     }
 
     static renderLeftBar(program) {
@@ -29,5 +34,9 @@ class Render {
 
     static renderRectUI(program, rect) {
         program.ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
+    }
+
+    static renderImageUI(program, image, pos) {
+        program.ctx.drawImage(image, pos[0], pos[1])
     }
 }
