@@ -9,7 +9,7 @@ const UI = {
             buttonThing: [200, 0, 40, 40],
             buttonStart: [240, 0, 40, 40],
             buttonGoal: [280, 0, 40, 40],
-            buttonPlay: [],
+            buttonPlay: [600, 0, 40, 40],
         },
         left: {
             rect: [0, 40, 240, 720]

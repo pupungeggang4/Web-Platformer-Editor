@@ -20,6 +20,7 @@ class Render {
         this.renderImageUI(program.ctx, img.button.thing, UI.edit.upper.buttonThing)
         this.renderImageUI(program.ctx, img.button.start, UI.edit.upper.buttonStart)
         this.renderImageUI(program.ctx, img.button.goal, UI.edit.upper.buttonGoal)
+        this.renderImageUI(program.ctx, img.button.play, UI.edit.upper.buttonPlay)
     }
 
     static renderLeftBar(program) {
