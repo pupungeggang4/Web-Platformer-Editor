@@ -4,7 +4,7 @@ class SceneEdit {
     }
 
     static render(program) {
-        Render.init(program)
+        Render.init(program.ctx)
         Render.renderUpperBar(program)
         Render.renderLowerBar(program)
         Render.renderLeftBar(program)

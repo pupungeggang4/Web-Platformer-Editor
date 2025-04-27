@@ -1,42 +1,44 @@
 class Render {
-    static init(program) {
-        program.ctx.font = '32px neodgm'
-        program.ctx.textAlign = 'left'
-        program.ctx.textBaseline = 'top'
-        program.ctx.strokeStyle = 'black'
-        program.ctx.lineWidth = 2
-        program.ctx.fillStyle = 'white'
-        program.ctx.clearRect(0, 0, 1280, 800)
-        program.ctx.fillRect(0, 0, 1280, 800)
-        program.ctx.fillStyle = 'black'
+    static init(ctx) {
+        ctx.font = '32px neodgm'
+        ctx.textAlign = 'left'
+        ctx.textBaseline = 'top'
+        ctx.strokeStyle = 'black'
+        ctx.lineWidth = 2
+        ctx.fillStyle = 'white'
+        ctx.clearRect(0, 0, 1280, 800)
+        ctx.fillRect(0, 0, 1280, 800)
+        ctx.fillStyle = 'black'
     }
 
     static renderUpperBar(program) {
-        this.renderRectUI(program, UI.edit.upper.rect)
-        this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
-        this.renderImageUI(program, img.button.saveFile, UI.edit.upper.buttonSaveFile)
-        this.renderImageUI(program, img.button.openFile, UI.edit.upper.buttonOpenFile)
-        //this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
-        //this.renderImageUI(program, img.button.newFile, UI.edit.upper.buttonNewFile)
+        this.renderRectUI(program.ctx, UI.edit.upper.rect)
+        this.renderImageUI(program.ctx, img.button.newFile, UI.edit.upper.buttonNewFile)
+        this.renderImageUI(program.ctx, img.button.saveFile, UI.edit.upper.buttonSaveFile)
+        this.renderImageUI(program.ctx, img.button.openFile, UI.edit.upper.buttonOpenFile)
+        this.renderImageUI(program.ctx, img.button.tile, UI.edit.upper.buttonTile)
+        this.renderImageUI(program.ctx, img.button.thing, UI.edit.upper.buttonThing)
+        this.renderImageUI(program.ctx, img.button.start, UI.edit.upper.buttonStart)
+        this.renderImageUI(program.ctx, img.button.goal, UI.edit.upper.buttonGoal)
     }
 
     static renderLeftBar(program) {
-        this.renderRectUI(program, UI.edit.left.rect)
+        this.renderRectUI(program.ctx, UI.edit.left.rect)
     }
 
     static renderRightBar(program) {
-        this.renderRectUI(program, UI.edit.right.rect)
+        this.renderRectUI(program.ctx, UI.edit.right.rect)
     }
 
     static renderLowerBar(program) {
-        this.renderRectUI(program, UI.edit.lower.rect)
+        this.renderRectUI(program.ctx, UI.edit.lower.rect)
     }
 
-    static renderRectUI(program, rect) {
-        program.ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
+    static renderRectUI(ctx, rect) {
+        ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }
 
-    static renderImageUI(program, image, pos) {
-        program.ctx.drawImage(image, pos[0], pos[1])
+    static renderImageUI(ctx, image, pos) {
+        ctx.drawImage(image, pos[0], pos[1])
     }
 }
