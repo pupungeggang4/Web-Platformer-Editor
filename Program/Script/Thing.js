@@ -42,4 +42,8 @@ class TileMap {
             this.cell.push(temp)
         }
     }
+
+    render(ctx) {
+
+    }
 }

@@ -12,7 +12,7 @@ class Render {
     }
 
     static renderUpperBar(program) {
-        this.renderRectUI(program.ctx, UI.edit.upper.rect)
+        this.strokeRectUI(program.ctx, UI.edit.upper.rect)
         this.renderImageUI(program.ctx, img.button.newFile, UI.edit.upper.buttonNewFile)
         this.renderImageUI(program.ctx, img.button.saveFile, UI.edit.upper.buttonSaveFile)
         this.renderImageUI(program.ctx, img.button.openFile, UI.edit.upper.buttonOpenFile)
@@ -24,18 +24,18 @@ class Render {
     }
 
     static renderLeftBar(program) {
-        this.renderRectUI(program.ctx, UI.edit.left.rect)
+        this.strokeRectUI(program.ctx, UI.edit.left.rect)
     }
 
     static renderRightBar(program) {
-        this.renderRectUI(program.ctx, UI.edit.right.rect)
+        this.strokeRectUI(program.ctx, UI.edit.right.rect)
     }
 
     static renderLowerBar(program) {
-        this.renderRectUI(program.ctx, UI.edit.lower.rect)
+        this.strokeRectUI(program.ctx, UI.edit.lower.rect)
     }
 
-    static renderRectUI(ctx, rect) {
+    static strokeRectUI(ctx, rect) {
         ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }
 

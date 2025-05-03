@@ -22,7 +22,10 @@ const UI = {
         },
         fieldArea: [240, 40, 800, 720]
     },
-    test: {
 
+    test: {
+        buttonPlay: [600, 0, 40, 40],
+        buttonPause: [640, 0, 40, 40],
+        buttonStop: [680, 0, 40, 40],
     }
 }
