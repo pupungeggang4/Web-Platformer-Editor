@@ -13,14 +13,14 @@ class Render {
 
     static renderUpperBar(program) {
         this.strokeRectUI(program.ctx, UI.edit.upper.rect)
-        this.renderImageUI(program.ctx, img.button.newFile, UI.edit.upper.buttonNewFile)
-        this.renderImageUI(program.ctx, img.button.saveFile, UI.edit.upper.buttonSaveFile)
-        this.renderImageUI(program.ctx, img.button.openFile, UI.edit.upper.buttonOpenFile)
-        this.renderImageUI(program.ctx, img.button.tile, UI.edit.upper.buttonTile)
-        this.renderImageUI(program.ctx, img.button.thing, UI.edit.upper.buttonThing)
-        this.renderImageUI(program.ctx, img.button.start, UI.edit.upper.buttonStart)
-        this.renderImageUI(program.ctx, img.button.goal, UI.edit.upper.buttonGoal)
-        this.renderImageUI(program.ctx, img.button.play, UI.edit.upper.buttonPlay)
+        this.drawImageUI(program.ctx, img.button.newFile, UI.edit.upper.buttonNewFile)
+        this.drawImageUI(program.ctx, img.button.saveFile, UI.edit.upper.buttonSaveFile)
+        this.drawImageUI(program.ctx, img.button.openFile, UI.edit.upper.buttonOpenFile)
+        this.drawImageUI(program.ctx, img.button.tile, UI.edit.upper.buttonTile)
+        this.drawImageUI(program.ctx, img.button.thing, UI.edit.upper.buttonThing)
+        this.drawImageUI(program.ctx, img.button.start, UI.edit.upper.buttonStart)
+        this.drawImageUI(program.ctx, img.button.goal, UI.edit.upper.buttonGoal)
+        this.drawImageUI(program.ctx, img.button.play, UI.edit.upper.buttonPlay)
     }
 
     static renderLeftBar(program) {
@@ -39,7 +39,7 @@ class Render {
         ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }
 
-    static renderImageUI(ctx, image, pos) {
+    static drawImageUI(ctx, image, pos) {
         ctx.drawImage(image, pos[0], pos[1])
     }
 }
