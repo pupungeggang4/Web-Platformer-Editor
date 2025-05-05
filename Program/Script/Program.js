@@ -6,6 +6,7 @@ class Program {
 
         this.scene = 'editor'
         this.state = ''
+        this.editState = ''
         this.menu = false
 
         this.delta = 0

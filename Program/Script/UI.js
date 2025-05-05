@@ -9,6 +9,7 @@ const UI = {
             buttonThing: [200, 0, 40, 40],
             buttonStart: [240, 0, 40, 40],
             buttonGoal: [280, 0, 40, 40],
+            buttonCamera: [320, 0, 40, 40],
             buttonPlay: [600, 0, 40, 40],
         },
         left: {
@@ -18,7 +19,8 @@ const UI = {
             rect: [1040, 40, 240, 720]
         },
         lower: {
-            rect: [0, 760, 1280, 40]
+            rect: [0, 760, 1280, 40],
+            textEditState: [4, 764],
         },
         fieldArea: [240, 40, 800, 720]
     },

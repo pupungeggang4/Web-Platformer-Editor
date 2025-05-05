@@ -11,7 +11,16 @@ class SceneTest {
     }
 
     static mouseUp(program, pos, button) {
-
+        if (button === 0) {
+            if (pointInsideRectUI(pos, UI.test.buttonPlay)) {
+                program.state = 'play'
+            } else if (pointInsideRectUI(pos, UI.test.buttonPause)) {
+                program.state = 'pause'
+            } else if (pointInsideRectUI(pos, UI.test.buttonStop)) {
+                program.scene = 'editor'
+                program.state = ''
+            }
+        }
     }
 
     static keyDown(program, key) {
@@ -21,6 +30,7 @@ class SceneTest {
     static keyUp(program, key) {
         if (key === 's') {
             program.scene = 'editor'
+            program.state = ''
         }
     }
 }
