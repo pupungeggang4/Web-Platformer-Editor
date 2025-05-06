@@ -13,7 +13,8 @@ const UI = {
             buttonPlay: [600, 0, 40, 40],
         },
         left: {
-            rect: [0, 40, 240, 640]
+            rect: [0, 40, 240, 640],
+            selectArea: [0, 40, 240, 560],
         },
         right: {
             rect: [1040, 40, 240, 640]
@@ -22,7 +23,9 @@ const UI = {
             rect: [0, 680, 1280, 40],
             textEditState: [4, 684],
         },
-        fieldArea: [240, 40, 800, 640]
+        fieldArea: [240, 40, 800, 640],
+        buttonSize: [80, 80],
+        icon: [20, 20],
     },
 
     test: {

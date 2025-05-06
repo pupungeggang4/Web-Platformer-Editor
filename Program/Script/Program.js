@@ -8,6 +8,7 @@ class Program {
         this.state = ''
         this.editState = ''
         this.menu = false
+        this.brush = -1
 
         this.delta = 0
         this.frameCurrent = performance.now()

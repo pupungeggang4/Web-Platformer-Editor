@@ -10,4 +10,8 @@ class Rect2D {
         this.position = new Vector2D(x, y)
         this.size = new Vector2D(w, h)
     }
+
+    clone() {
+        return new Rect2D(this.position.x, this.position.y, this.size.x, this.size.y)
+    }
 }

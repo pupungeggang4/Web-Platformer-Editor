@@ -1,6 +1,35 @@
 class FieldTest {
     constructor() {
         this.player = new Player()
+        this.camera = new Vector2D(0, 0)
         this.thing = []
+        this.size = new Vector2D(1280, 720)
+        this.canvas = document.createElement('canvas')
+        this.canvas.width = this.size.x
+        this.canvas.height = this.size.y
+        this.ctx = this.canvas.getContext('2d')
+    }
+
+    loadField(field) {
+        this.player.rect = field.player.rect.clone()
+        let tileCell = field.tileMap.cell
+
+        this.thing = []
+        for (let i = 0; i < tileCell.length; i++) {
+            for (let j = 0; j < tileCell[0].length; j++) {
+                if (tileCell[i][j].constructor != Empty) {
+                    this.thing.push(tileCell[i][j].clone())
+                }
+            }
+        }
+    }
+
+    render(program) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.player.render(program, this)
+        for (let i = 0; i < this.thing.length; i++) {
+            this.thing[i].render(program, this)
+        }
+        program.ctx.drawImage(this.canvas, 0, 0)
     }
 }

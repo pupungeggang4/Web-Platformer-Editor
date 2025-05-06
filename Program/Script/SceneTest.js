@@ -5,6 +5,7 @@ class SceneTest {
 
     static render(program) {
         Render.init(program.ctx)
+        program.fieldTest.render(program)
         Render.drawImageUI(program.ctx, img.button.play, UI.test.buttonPlay)
         Render.drawImageUI(program.ctx, img.button.pause, UI.test.buttonPause)
         Render.drawImageUI(program.ctx, img.button.stop, UI.test.buttonStop)

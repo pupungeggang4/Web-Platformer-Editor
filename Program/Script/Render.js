@@ -26,6 +26,20 @@ class Render {
 
     static renderLeftBar(program) {
         this.strokeRectUI(program.ctx, UI.edit.left.rect)
+
+        if (program.editState === 'tile') {
+            for (let i = 0; i < 7; i++) {
+                for (let j = 0; j < 3; j++) {
+                    program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * j, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * i, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
+                }
+            }
+        } else if (program.editState === 'thing') {
+            for (let i = 0; i < 7; i++) {
+                for (let j = 0; j < 3; j++) {
+                    program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * j, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * i, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
+                }
+            }
+        }
     }
 
     static renderRightBar(program) {

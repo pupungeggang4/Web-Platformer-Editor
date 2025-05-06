@@ -1,12 +1,22 @@
 class Thing {
     constructor() {
+        
+    }
 
+    clone() {
+        let o = new this.constructor()
+        o.rect = this.rect.clone()
+        return o
     }
 }
 
 class Empty extends Thing {
     constructor() {
         super()
+    }
+
+    placeTileMap(tilemap, row, col) {
+        tilemap.cell[row][col] = this
     }
 }
 
