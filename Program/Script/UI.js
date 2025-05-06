@@ -13,16 +13,16 @@ const UI = {
             buttonPlay: [600, 0, 40, 40],
         },
         left: {
-            rect: [0, 40, 240, 720]
+            rect: [0, 40, 240, 640]
         },
         right: {
-            rect: [1040, 40, 240, 720]
+            rect: [1040, 40, 240, 640]
         },
         lower: {
-            rect: [0, 760, 1280, 40],
-            textEditState: [4, 764],
+            rect: [0, 680, 1280, 40],
+            textEditState: [4, 684],
         },
-        fieldArea: [240, 40, 800, 720]
+        fieldArea: [240, 40, 800, 640]
     },
 
     test: {

@@ -91,7 +91,7 @@ class TileMap {
         let startColumn = Math.floor(field.camera.y / 40)
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-        for (let i = 0; i < 19; i++) {
+        for (let i = 0; i < 17; i++) {
             for (let j = 0; j < 21; j++) {
                 if (startRow + i < this.size[0] && startColumn + j < this.size[1]) {
                     Render.strokeRectUI(this.ctx, [(startColumn + j) * 40 - field.camera.x, (startRow + i) * 40 - field.camera.y, 40, 40])

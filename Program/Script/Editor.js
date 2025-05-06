@@ -2,7 +2,7 @@ class FieldEdit {
     constructor() {
         this.player = new Player()
         this.tileMap = new TileMap()
-        this.size = new Vector2D(800, 720)
+        this.size = new Vector2D(800, 640)
         this.canvas = document.createElement('canvas')
         this.canvas.width = this.size.x
         this.canvas.height = this.size.y
