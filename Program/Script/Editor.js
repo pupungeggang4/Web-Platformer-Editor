@@ -8,10 +8,6 @@ class FieldEdit {
         this.canvas.height = this.size.y
         this.ctx = this.canvas.getContext('2d')
         this.camera = new Vector2D(0, 0)
-
-        new Coin().placeTileMap(this.tileMap, 1, 1)
-        new Coin().placeTileMap(this.tileMap, 1, 2)
-        new Coin().placeTileMap(this.tileMap, 1, 3)
     }
 
     handleTick(program) {

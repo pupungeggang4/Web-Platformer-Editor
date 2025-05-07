@@ -3,6 +3,15 @@ class Vector2D {
         this.x = x
         this.y = y
     }
+
+    translate(v) {
+        this.x += v.x
+        this.y += v.y
+    }
+
+    clone() {
+        return new Vector2D(this.x, this.y)
+    }
 }
 
 class Rect2D {

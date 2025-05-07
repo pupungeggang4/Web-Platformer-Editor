@@ -6,6 +6,9 @@ class Thing {
     clone() {
         let o = new this.constructor()
         o.rect = this.rect.clone()
+        if (o.constructor === Terrain) {
+            o.setTileNo(this.tileNo)
+        }
         return o
     }
 }
@@ -46,6 +49,12 @@ class NonEmpty extends Thing {
         let cut = [spriteColumn * this.canvas.width, spriteRow * this.canvas.height, this.canvas.width, this.canvas.height]
         this.ctx.drawImage(sprite, cut[0], cut[1], cut[2], cut[3], 0, 0, this.canvas.width, this.canvas.height)
     }
+
+    selectAndDraw(sprite, row, col) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        let cut = [col * this.canvas.width, row * this.canvas.height, this.canvas.width, this.canvas.height]
+        this.ctx.drawImage(sprite, cut[0], cut[1], cut[2], cut[3], 0, 0, this.canvas.width, this.canvas.height)
+    }
 }
 
 class Collectable extends NonEmpty {
@@ -74,6 +83,26 @@ class Coin extends Collectable {
 class Terrain extends NonEmpty {
     constructor() {
         super()
+        this.spriteTotal = 1
+        this.tileNo = 0
+    }
+
+    setTileNo(no) {
+        this.tileNo = no
+    }
+
+    render(program, field) {
+        let row = Math.floor(this.tileNo / 4)
+        let col = this.tileNo % 4
+        this.selectAndDraw(img.tileset.plains, row, col)
+        Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
+    }
+
+    renderAtTileMap(program, field, tileMap) {
+        let row = Math.floor(this.tileNo / 4)
+        let col = this.tileNo % 4
+        this.selectAndDraw(img.tileset.plains, row, col)
+        Render.renderImageCam(tileMap.ctx, this.canvas, this.rect, field.camera)
     }
 }
 
@@ -97,13 +126,13 @@ class TileMap {
     }
 
     render(program, field) {
-        let startRow = Math.floor(field.camera.x / 40)
-        let startColumn = Math.floor(field.camera.y / 40)
+        let startRow = Math.floor(field.camera.y / 40)
+        let startColumn = Math.floor(field.camera.x / 40)
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
         for (let i = 0; i < 17; i++) {
             for (let j = 0; j < 21; j++) {
-                if (startRow + i < this.size[0] && startColumn + j < this.size[1]) {
+                if (cellInsideArray(startRow + i, startColumn + j, this.size[0], this.size[1])) {
                     Render.strokeRectUI(this.ctx, [(startColumn + j) * 40 - field.camera.x, (startRow + i) * 40 - field.camera.y, 40, 40])
                     let cell = this.cell[startRow + i][startColumn + j]
                     if (cell.constructor != Empty) {

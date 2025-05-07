@@ -15,8 +15,17 @@ let img = {
         pause: new Image(),
     },
 
+    icon: {
+        deselect: new Image(),
+        erase: new Image(),
+    },
+
     sprite: {
         coin: new Image(),
+    },
+
+    tileset: {
+        plains: new Image()
     }
 }
 
@@ -35,5 +44,14 @@ function imageLoad() {
     img.button.stop.src = 'Image/Button/ButtonStop.png'
     img.button.pause.src = 'Image/Button/ButtonPause.png'
 
+    for (let i = 1; i < 20; i++) {
+        img.icon[i] = new Image()
+    }
+    img.icon.deselect.src = 'Image/Icon/IconDeselect.png'
+    img.icon.erase.src = 'Image/Icon/IconErase.png'
+    img.icon[1].src = 'Image/Icon/IconCoin.png'
+
     img.sprite.coin.src = 'Image/Sprite/SpriteGoldCoin.png'
+
+    img.tileset.plains.src = 'Image/Tileset/Plains.png'
 }

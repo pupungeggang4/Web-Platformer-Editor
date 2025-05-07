@@ -33,12 +33,33 @@ class Render {
                     program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * j, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * i, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
                 }
             }
+
+            program.ctx.drawImage(img.icon.deselect, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 0 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1])
+            program.ctx.drawImage(img.icon.erase, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 1 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1])
+            program.ctx.drawImage(img.tileset.plains, 0, 0, 40, 40, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 2 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1], 40, 40)
+            program.ctx.drawImage(img.tileset.plains, 40, 0, 40, 40, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 0 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 1 + UI.edit.icon[1], 40, 40)
+
+            program.ctx.strokeStyle = 'Green'
+            let bRow = Math.floor((program.brush + 1) / 3)
+            let bColumn = (program.brush + 1) % 3
+            program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * bColumn, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * bRow, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
+            program.ctx.strokeStyle = 'Black'
         } else if (program.editState === 'thing') {
             for (let i = 0; i < 7; i++) {
                 for (let j = 0; j < 3; j++) {
                     program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * j, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * i, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
                 }
             }
+
+            program.ctx.drawImage(img.icon.deselect, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 0 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1])
+            program.ctx.drawImage(img.icon.erase, UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 1 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1])
+            program.ctx.drawImage(img.icon[1], UI.edit.left.rect[0] + UI.edit.buttonSize[0] * 2 + UI.edit.icon[0], UI.edit.left.rect[1] + UI.edit.buttonSize[1] * 0 + UI.edit.icon[1])
+
+            program.ctx.strokeStyle = 'Green'
+            let bRow = Math.floor((program.brush + 1) / 3)
+            let bColumn = (program.brush + 1) % 3
+            program.ctx.strokeRect(UI.edit.left.rect[0] + UI.edit.buttonSize[0] * bColumn, UI.edit.left.rect[1] + UI.edit.buttonSize[1] * bRow, UI.edit.buttonSize[0], UI.edit.buttonSize[1])
+            program.ctx.strokeStyle = 'Black'
         }
     }
 
