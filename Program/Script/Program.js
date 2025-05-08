@@ -54,6 +54,12 @@ class Program {
     keyDown(event) {
         let key = event.key
 
+        for (let k in this.keyPressed) {
+            if (key === this.keyBinding[k]) {
+                this.keyPressed[k] = true
+            }
+        }
+
         if (this.scene === 'editor') {
             SceneEdit.keyDown(this, key)
         } else if (this.scene === 'test') {
@@ -63,6 +69,12 @@ class Program {
 
     keyUp(event) {
         let key = event.key
+
+        for (let k in this.keyPressed) {
+            if (key === this.keyBinding[k]) {
+                this.keyPressed[k] = false
+            }
+        }
 
         if (this.scene === 'editor') {
             SceneEdit.keyUp(this, key)

@@ -9,6 +9,11 @@ class Vector2D {
         this.y += v.y
     }
 
+    makeSame(v) {
+        this.x = v.x
+        this.y = v.y
+    }
+
     clone() {
         return new Vector2D(this.x, this.y)
     }

@@ -1,5 +1,8 @@
 class SceneTest {
     static loop(program) {
+        if (program.state === 'play') {
+            program.fieldTest.handleTick(program)
+        }
         this.render(program)
     }
 

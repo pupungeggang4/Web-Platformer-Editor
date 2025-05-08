@@ -8,9 +8,12 @@ class FieldTest {
         this.canvas.width = this.size.x
         this.canvas.height = this.size.y
         this.ctx = this.canvas.getContext('2d')
+
+        this.gacceler = 800.0
     }
 
     loadField(field) {
+        this.player = new Player()
         this.player.rect = field.player.rect.clone()
         let tileCell = field.tileMap.cell
 
@@ -22,6 +25,10 @@ class FieldTest {
                 }
             }
         }
+    }
+
+    handleTick(program) {
+        this.player.handleTick(program, this)
     }
 
     render(program) {
