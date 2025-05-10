@@ -17,6 +17,9 @@ class SceneTest {
     static mouseUp(program, pos, button) {
         if (button === 0) {
             if (pointInsideRectUI(pos, UI.test.buttonPlay)) {
+                if (program.state === 'win') {
+                    program.fieldTest.loadField(program.fieldEdit)
+                }
                 program.state = 'play'
             } else if (pointInsideRectUI(pos, UI.test.buttonPause)) {
                 program.state = 'pause'

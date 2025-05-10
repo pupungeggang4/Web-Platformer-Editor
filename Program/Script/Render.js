@@ -14,8 +14,6 @@ class Render {
     static renderUpperBar(program) {
         this.strokeRectUI(program.ctx, UI.edit.upper.rect)
         this.drawImageUI(program.ctx, img.button.newFile, UI.edit.upper.buttonNewFile)
-        this.drawImageUI(program.ctx, img.button.saveFile, UI.edit.upper.buttonSaveFile)
-        this.drawImageUI(program.ctx, img.button.openFile, UI.edit.upper.buttonOpenFile)
         this.drawImageUI(program.ctx, img.button.tile, UI.edit.upper.buttonTile)
         this.drawImageUI(program.ctx, img.button.thing, UI.edit.upper.buttonThing)
         this.drawImageUI(program.ctx, img.button.start, UI.edit.upper.buttonStart)

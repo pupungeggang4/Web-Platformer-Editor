@@ -1,6 +1,7 @@
 class FieldTest {
     constructor() {
         this.player = new Player()
+        this.goal = new Goal()
         this.camera = new Vector2D(0, 0)
         this.thing = []
         this.size = new Vector2D(1280, 720)
@@ -15,6 +16,7 @@ class FieldTest {
     loadField(field) {
         this.player = new Player()
         this.player.rect = field.player.rect.clone()
+        this.goal.rect = field.goal.rect.clone()
         let tileCell = field.tileMap.cell
 
         this.thing = []
@@ -29,10 +31,12 @@ class FieldTest {
 
     handleTick(program) {
         this.player.handleTick(program, this)
+        this.goal.handleTick(program, this)
     }
 
     render(program) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.goal.render(program, this)
         this.player.render(program, this)
         for (let i = 0; i < this.thing.length; i++) {
             this.thing[i].render(program, this)

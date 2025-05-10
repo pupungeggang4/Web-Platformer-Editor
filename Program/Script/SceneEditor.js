@@ -44,6 +44,10 @@ class SceneEdit {
                     program.fieldTest.loadField(program.fieldEdit)
                 }
 
+                if (pointInsideRectUI(pos, UI.edit.upper.buttonNewFile)) {
+                    program.fieldEdit = new FieldEdit()
+                }
+
                 if (pointInsideRectUI(pos, UI.edit.upper.buttonTile)) {
                     program.editState = 'tile'
                 } else if (pointInsideRectUI(pos, UI.edit.upper.buttonThing)) {

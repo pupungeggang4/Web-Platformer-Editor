@@ -28,8 +28,8 @@ class NonEmpty extends Thing {
         super()
         this.rect = new Rect2D(0, 0, 40, 40)
         this.canvas = document.createElement('canvas')
-        this.canvas.width = 40
-        this.canvas.height = 40
+        this.canvas.width = this.rect.size.x
+        this.canvas.height = this.rect.size.y
         this.ctx = this.canvas.getContext('2d')
         this.spriteCurrent = 0
         this.spriteTotal = 0
@@ -54,6 +54,29 @@ class NonEmpty extends Thing {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let cut = [col * this.canvas.width, row * this.canvas.height, this.canvas.width, this.canvas.height]
         this.ctx.drawImage(sprite, cut[0], cut[1], cut[2], cut[3], 0, 0, this.canvas.width, this.canvas.height)
+    }
+}
+
+class Goal extends NonEmpty {
+    constructor() {
+        super()
+        this.rect = new Rect2D(40, 600, 80, 80)
+        this.canvas = document.createElement('canvas')
+        this.canvas.width = this.rect.size.x
+        this.canvas.height = this.rect.size.y
+        this.ctx = this.canvas.getContext('2d')
+    }
+
+    handleTick(program, field) {
+        if (Rect2D.Collide(this.rect, field.player.rect)) {
+            program.state = 'win'
+        }
+    }
+
+    render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+        Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }
 }
 
