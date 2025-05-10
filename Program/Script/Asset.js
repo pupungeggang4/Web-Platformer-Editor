@@ -18,6 +18,7 @@ let img = {
     icon: {
         deselect: new Image(),
         erase: new Image(),
+        coin: new Image(),
     },
 
     sprite: {
@@ -50,6 +51,8 @@ function imageLoad() {
     img.icon.deselect.src = 'Image/Icon/IconDeselect.png'
     img.icon.erase.src = 'Image/Icon/IconErase.png'
     img.icon[1].src = 'Image/Icon/IconCoin.png'
+
+    img.icon.coin.src = 'Image/Icon/IconCoin.png'
 
     img.sprite.coin.src = 'Image/Sprite/SpriteGoldCoin.png'
 

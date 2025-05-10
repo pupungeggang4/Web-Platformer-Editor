@@ -35,7 +35,6 @@ class SceneEdit {
                 if (pointInsideRectUI(pos, UI.edit.fieldArea)) {
                     let row = Math.floor((pos.x + program.fieldEdit.camera.x - UI.edit.fieldArea[0]) / 40)
                     let col = Math.floor((pos.y + program.fieldEdit.camera.y - UI.edit.fieldArea[1]) / 40)
-                    console.log(row, col)
                 }
 
                 if (pointInsideRectUI(pos, UI.edit.upper.buttonPlay)) {
@@ -78,7 +77,6 @@ class SceneEdit {
             let col = Math.floor((pos.x - UI.edit.left.selectArea[0]) / UI.edit.buttonSize[0])
             let row = Math.floor((pos.y - UI.edit.left.selectArea[1]) / UI.edit.buttonSize[1])
             program.brush = row * 3 + col - 1
-            console.log(program.brush)
         }
 
         if (pointInsideRectUI(pos, UI.edit.fieldArea)) {
@@ -106,7 +104,6 @@ class SceneEdit {
             let col = Math.floor((pos.x - UI.edit.left.selectArea[0]) / UI.edit.buttonSize[0])
             let row = Math.floor((pos.y - UI.edit.left.selectArea[1]) / UI.edit.buttonSize[1])
             program.brush = row * 3 + col - 1
-            console.log(program.brush)
         }
 
         if (pointInsideRectUI(pos, UI.edit.fieldArea)) {
@@ -137,7 +134,17 @@ class SceneEdit {
     }
 
     static handleEditGoal(program, pos) {
-
+        if (pointInsideRectUI(pos, UI.edit.fieldArea)) {
+            let col = Math.floor((pos.x + program.fieldEdit.camera.x - UI.edit.fieldArea[0]) / 40)
+            let row = Math.floor((pos.y + program.fieldEdit.camera.y - UI.edit.fieldArea[1]) / 40)
+            if (cellInsideArray(row, col, program.fieldEdit.tileMap.size[0] - 1, program.fieldEdit.tileMap.size[1] - 1)) {
+                new Empty().placeTileMap(program.fieldEdit.tileMap, row, col)
+                new Empty().placeTileMap(program.fieldEdit.tileMap, row, col + 1)
+                new Empty().placeTileMap(program.fieldEdit.tileMap, row + 1, col)
+                new Empty().placeTileMap(program.fieldEdit.tileMap, row + 1, col + 1)
+                program.fieldEdit.goal.rect.position = new Vector2D(col * 40 + 40, row * 40 + 40)
+            }
+        }
     }
 
     static handleEditCamera(program) {

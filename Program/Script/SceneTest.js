@@ -3,15 +3,22 @@ class SceneTest {
         if (program.state === 'play') {
             program.fieldTest.handleTick(program)
         }
-        this.render(program)
+        this.render(program, program.fieldTest.player)
     }
 
-    static render(program) {
+    static render(program, player) {
         Render.init(program.ctx)
         program.fieldTest.render(program)
         Render.drawImageUI(program.ctx, img.button.play, UI.test.buttonPlay)
         Render.drawImageUI(program.ctx, img.button.pause, UI.test.buttonPause)
         Render.drawImageUI(program.ctx, img.button.stop, UI.test.buttonStop)
+
+        program.ctx.fillStyle = 'white'
+        Render.fillRectUI(program.ctx, UI.test.lowerRect)
+        Render.strokeRectUI(program.ctx, UI.test.lowerRect)
+        program.ctx.fillStyle = 'black'
+        Render.drawImageUI(program.ctx, img.icon.coin, UI.test.iconCoin)
+        Render.fillTextUI(program.ctx, `${player.coin}`, UI.test.textCoin)
     }
 
     static mouseUp(program, pos, button) {

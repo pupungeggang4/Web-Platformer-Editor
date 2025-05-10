@@ -84,12 +84,24 @@ class Collectable extends NonEmpty {
     constructor() {
         super()
     }
+
+    handleTick(program, field) {
+        if (Rect2D.Collide(this.rect, field.player.rect)) {
+            this.collect(program, field)
+            let index = field.thing.indexOf(this)
+            field.thing.splice(index, 1)
+        }
+    }
 }
 
 class Coin extends Collectable {
     constructor() {
         super()
         this.spriteTotal = 4
+    }
+
+    collect(program, field) {
+        field.player.coin += 1
     }
 
     render(program, field) {
@@ -112,6 +124,20 @@ class Terrain extends NonEmpty {
 
     setTileNo(no) {
         this.tileNo = no
+    }
+
+    handleTick(game, field) {
+        this.supportPlayer(field.player)
+    }
+
+    supportPlayer(player) {
+        if (Rect2D.Collide(this.rect, player.rect)) {
+            let overlap = Rect2D.FindOverlapV(this.rect, player.rect)
+            player.rect.position.y -= overlap
+            player.velocity.y = 0
+            player.ground = true
+            player.jump = 1
+        }
     }
 
     render(program, field) {

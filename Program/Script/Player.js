@@ -10,9 +10,21 @@ class Player {
         this.tempPosition = new Vector2D(0, 0)
         this.velocity = new Vector2D(0, 0)
         this.terminalSpeed = 800.0
+
+        this.jump = 0
+        this.jumpTime = 0
+        this.jumpTimeMax = 0
+        this.ground = false
+
+        this.coin = 0
     }
 
     handleTick(program, field) {
+        this.move(program, field)
+        
+    }
+
+    move(program, field) {
         this.tempPosition.makeSame(this.rect.position)
         this.velocity.x = 0
         if (program.keyPressed['left'] === true) {

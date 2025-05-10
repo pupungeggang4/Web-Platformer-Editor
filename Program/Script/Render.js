@@ -70,6 +70,10 @@ class Render {
         this.fillTextUI(program.ctx, `${program.editState}`, UI.edit.lower.textEditState)
     }
 
+    static fillRectUI(ctx, rect) {
+        ctx.fillRect(rect[0], rect[1], rect[2], rect[3])
+    }
+
     static strokeRectUI(ctx, rect) {
         ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }

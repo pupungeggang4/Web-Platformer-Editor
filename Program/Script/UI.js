@@ -30,5 +30,9 @@ const UI = {
         buttonPlay: [600, 0, 40, 40],
         buttonPause: [640, 0, 40, 40],
         buttonStop: [680, 0, 40, 40],
+
+        lowerRect: [20, 660, 160, 40],
+        iconCoin: [20, 660],
+        textCoin: [64, 664],
     }
 }
