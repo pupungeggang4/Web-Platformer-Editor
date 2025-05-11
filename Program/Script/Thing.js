@@ -26,6 +26,7 @@ class Empty extends Thing {
 class NonEmpty extends Thing {
     constructor() {
         super()
+        this.solid = false
         this.rect = new Rect2D(0, 0, 40, 40)
         this.canvas = document.createElement('canvas')
         this.canvas.width = this.rect.size.x
@@ -60,7 +61,7 @@ class NonEmpty extends Thing {
 class Goal extends NonEmpty {
     constructor() {
         super()
-        this.rect = new Rect2D(40, 600, 80, 80)
+        this.rect = new Rect2D(760, 1200, 80, 80)
         this.canvas = document.createElement('canvas')
         this.canvas.width = this.rect.size.x
         this.canvas.height = this.rect.size.y
@@ -120,6 +121,7 @@ class Terrain extends NonEmpty {
         super()
         this.spriteTotal = 1
         this.tileNo = 0
+        this.solid = true
     }
 
     setTileNo(no) {
@@ -127,17 +129,7 @@ class Terrain extends NonEmpty {
     }
 
     handleTick(game, field) {
-        this.supportPlayer(field.player)
-    }
 
-    supportPlayer(player) {
-        if (Rect2D.Collide(this.rect, player.rect)) {
-            let overlap = Rect2D.FindOverlapV(this.rect, player.rect)
-            player.rect.position.y -= overlap
-            player.velocity.y = 0
-            player.ground = true
-            player.jump = 1
-        }
     }
 
     render(program, field) {

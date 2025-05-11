@@ -8,7 +8,23 @@ class FieldEdit {
         this.canvas.width = this.size.x
         this.canvas.height = this.size.y
         this.ctx = this.canvas.getContext('2d')
-        this.camera = new Vector2D(0, 0)
+        this.camera = new Vector2D(0, 640)
+
+        let a = new Terrain()
+        a.setTileNo(0)
+        a.placeTileMap(this.tileMap, 31, 0)
+        a = new Terrain()
+        a.setTileNo(0)
+        a.placeTileMap(this.tileMap, 31, 1)
+        a = new Terrain()
+        a.setTileNo(0)
+        a.placeTileMap(this.tileMap, 31, 2)
+        a = new Terrain()
+        a.setTileNo(0)
+        a.placeTileMap(this.tileMap, 31, 18)
+        a = new Terrain()
+        a.setTileNo(0)
+        a.placeTileMap(this.tileMap, 31, 19)
     }
 
     handleTick(program) {

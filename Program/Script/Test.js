@@ -10,13 +10,14 @@ class FieldTest {
         this.canvas.height = this.size.y
         this.ctx = this.canvas.getContext('2d')
 
-        this.gacceler = 800.0
+        this.gacceler = 1600.0
     }
 
     loadField(field) {
         this.player = new Player()
         this.player.rect = field.player.rect.clone()
         this.goal.rect = field.goal.rect.clone()
+        this.camera = field.camera.clone()
         let tileCell = field.tileMap.cell
 
         this.thing = []
