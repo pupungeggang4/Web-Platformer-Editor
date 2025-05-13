@@ -1,10 +1,11 @@
-class Player {
+class Player extends NonEmpty{
     constructor() {
+        super()
         this.rect = new Rect2D(20, 1220, 40, 40)
-        this.canvas = document.createElement('canvas')
         this.canvas.width = this.rect.size.x
         this.canvas.height = this.rect.size.y
         this.ctx = this.canvas.getContext('2d')
+        this.spriteTotal = 4
 
         this.speed = 200.0
         this.tempPosition = new Vector2D(0, 0)
@@ -108,8 +109,7 @@ class Player {
     }
 
     render(program, field) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+        this.draw(img.sprite.player)
         Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }
 }

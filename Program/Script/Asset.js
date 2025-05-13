@@ -23,6 +23,8 @@ let img = {
 
     sprite: {
         coin: new Image(),
+        player: new Image(),
+        goal: new Image(),
     },
 
     tileset: {
@@ -55,6 +57,8 @@ function imageLoad() {
     img.icon.coin.src = 'Image/Icon/IconCoin.png'
 
     img.sprite.coin.src = 'Image/Sprite/SpriteGoldCoin.png'
+    img.sprite.player.src = 'Image/Sprite/SpritePlayer.png'
+    img.sprite.goal.src = 'Image/Sprite/SpriteGoal.png'
 
     img.tileset.plains.src = 'Image/Tileset/Plains.png'
 }

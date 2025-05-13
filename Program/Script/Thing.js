@@ -62,10 +62,10 @@ class Goal extends NonEmpty {
     constructor() {
         super()
         this.rect = new Rect2D(760, 1200, 80, 80)
-        this.canvas = document.createElement('canvas')
         this.canvas.width = this.rect.size.x
         this.canvas.height = this.rect.size.y
         this.ctx = this.canvas.getContext('2d')
+        this.spriteTotal = 4
     }
 
     handleTick(program, field) {
@@ -75,8 +75,7 @@ class Goal extends NonEmpty {
     }
 
     render(program, field) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+        this.draw(img.sprite.goal)
         Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }
 }
