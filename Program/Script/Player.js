@@ -109,6 +109,7 @@ class Player extends NonEmpty{
     }
 
     render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.draw(img.sprite.player)
         Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }

@@ -43,7 +43,6 @@ class NonEmpty extends Thing {
     }
 
     draw(sprite) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.spriteCurrent = Math.floor(performance.now() / this.spriteInterval) % this.spriteTotal
         let spriteRow = Math.floor(this.spriteCurrent / 4)
         let spriteColumn = this.spriteCurrent % 4
@@ -52,7 +51,6 @@ class NonEmpty extends Thing {
     }
 
     selectAndDraw(sprite, row, col) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let cut = [col * this.canvas.width, row * this.canvas.height, this.canvas.width, this.canvas.height]
         this.ctx.drawImage(sprite, cut[0], cut[1], cut[2], cut[3], 0, 0, this.canvas.width, this.canvas.height)
     }
@@ -75,6 +73,7 @@ class Goal extends NonEmpty {
     }
 
     render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.draw(img.sprite.goal)
         Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }
@@ -105,11 +104,13 @@ class Coin extends Collectable {
     }
 
     render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.draw(img.sprite.coin)
         Render.renderImageCam(field.ctx, this.canvas, this.rect, field.camera)
     }
 
     renderAtTileMap(program, field, tileMap) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.draw(img.sprite.coin)
         Render.renderImageCam(tileMap.ctx, this.canvas, this.rect, field.camera)
     }
@@ -132,6 +133,7 @@ class Terrain extends NonEmpty {
     }
 
     render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let row = Math.floor(this.tileNo / 4)
         let col = this.tileNo % 4
         this.selectAndDraw(img.tileset.plains, row, col)
@@ -139,6 +141,7 @@ class Terrain extends NonEmpty {
     }
 
     renderAtTileMap(program, field, tileMap) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let row = Math.floor(this.tileNo / 4)
         let col = this.tileNo % 4
         this.selectAndDraw(img.tileset.plains, row, col)
@@ -166,9 +169,9 @@ class TileMap {
     }
 
     render(program, field) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let startRow = Math.floor(field.camera.y / 40)
         let startColumn = Math.floor(field.camera.x / 40)
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
         for (let i = 0; i < 17; i++) {
             for (let j = 0; j < 21; j++) {
