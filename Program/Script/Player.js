@@ -42,10 +42,10 @@ class Player extends NonEmpty{
         if (program.keyPressed['up'] === true) {
             if (this.ground === true && this.jumpLock === false && this.jump > 0) {
                 this.jump -= 1
-                this.jumpPeriod = true
-                this.jumping = true
                 this.jumpLock = true
+                this.jumping = true
                 this.jumpTime = 0
+                this.jumpPeriod = true
             } else if (this.jumpPeriod === true && this.jumping === false && this.jump > 0) {
                 this.jump -= 1
                 this.jumping = true
